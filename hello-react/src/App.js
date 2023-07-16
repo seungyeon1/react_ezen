@@ -3,7 +3,10 @@ import MyComponent from './MyComponent';
 import MyComponent_c from './MyComponent_c';
 import Counter_c from './Counter_c';
 import Say from './Say';
-import EventPractice_c from './EventPractice_c';
+// import EventPractice_c from './EventPractice_c';
+import EventPractice from './EventPractice';
+import ValidationSample_c from './ValidationSample_c';
+import IterationSample from './IterationSample';
 
 const App = () => {
   return (
@@ -20,7 +23,15 @@ const App = () => {
       <hr></hr>
       <Say></Say>
       <hr></hr>
-      <EventPractice_c></EventPractice_c>
+      {/* <EventPractice_c></EventPractice_c> */}
+      <EventPractice></EventPractice>
+      <hr></hr>
+      {/* <EventPractice_c></EventPractice_c> */}
+      <hr></hr>
+      <ValidationSample_c></ValidationSample_c>
+      <hr></hr>
+
+      <IterationSample></IterationSample>
     </div>
   );
 };

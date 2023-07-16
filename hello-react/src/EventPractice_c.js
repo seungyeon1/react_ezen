@@ -11,16 +11,23 @@ class EventPractice_c extends Component {
     });
   };
   handleClick = () => {
+    //1. alert 창 실행 한다
     alert(this.state.username + ':' + this.state.message);
+    //2. 초기화 한다
     this.setState({
       username: '',
       message: '',
     });
   };
+  handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.handleClick();
+    }
+  };
   render() {
     return (
       <div>
-        <h1>이벤트 연습</h1>
+        <h1>클래스함수 이벤트 연습</h1>
         <input
           type="text"
           name="username"
@@ -34,6 +41,7 @@ class EventPractice_c extends Component {
           placeholder="placeholder"
           value={this.state.message}
           onChange={this.handleChange}
+          onKeyUp={this.handleKeyPress}
         />
         <button onClick={this.handleClick}>확인</button>
       </div>
