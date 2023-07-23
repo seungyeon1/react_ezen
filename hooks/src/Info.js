@@ -5,12 +5,14 @@ const Info = () => {
   const [nickname, setNickname] = useState("");
 
   useEffect(() => {
-    console.log(`랜더링이 완료되었습니다`); // `` es6문법
-    console.log({
-      name,
-      nickname,
-    });
-  }, []); // [] : 업데이트할 두변수를 비울거야 , [name] : name만 업데이트 할거야
+    console.log(`effect`);
+    console.log(name); //업데이트 후 값
+    //return 뒷정리 함수
+    return () => {
+      console.log(`cleanup`); //언마운트 되기 전에 출력
+      console.log(name); //업데이트 하기 전 값 출력
+    };
+  }, [name]); // 이름 업데이트 해라
 
   const onChangeName = (e) => {
     setName(e.target.value);
