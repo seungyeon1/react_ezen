@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "global": "^4.4.0",
+    "immer": "^10.0.2",
     "yarn": "^1.22.19"
   }
 }
