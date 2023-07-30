@@ -7,22 +7,17 @@ import {
 import cn from 'classnames'; //조건부 스타일링 lib 메서드 이름
 import './TodoListItem.scss';
 
-const TodoListItem = ({ todo, onRemove, onToggle, style }) => {
+const TodoListItem = ({ todo, onRemove, onToggle }) => {
   const { id, text, checked } = todo; //비구조화할당문
 
   return (
-    <div className="todo-list-item-virtualized" style={style}>
-      <div className="todo-list-item">
-        <div
-          className={cn('checkbox', { checked })}
-          onClick={() => onToggle(id)}
-        >
-          {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-          <div className="text">{text}</div>
-        </div>
-        <div className="remove" onClick={() => onRemove(id)}>
-          <MdRemoveCircleOutline />
-        </div>
+    <div className="todo-list-item">
+      <div className={cn('checkbox', { checked })} onClick={() => onToggle(id)}>
+        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+        <div className="text">{text}</div>
+      </div>
+      <div className="remove" onClick={() => onRemove(id)}>
+        <MdRemoveCircleOutline />
       </div>
     </div>
   );

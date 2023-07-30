@@ -49,7 +49,7 @@ function App() {
     (id) => {
       setTodos(
         todos.map((todo) =>
-          //내가 선택한 아이템은 새롭게 복사해서 값을 변화 하고(id값의 체크값이 toggle 되고 ), 나머지 아이템은 그대로 가져온다.
+          //***내가 선택한 아이템은 새롭게 복사해서 값을 변화 하고(id값의 체크값이 toggle 되고 ), 나머지 아이템은 그대로 가져온다.
           todo.id === id ? { ...todo, checked: !todo.checked } : todo,
         ),
       );
