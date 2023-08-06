@@ -14,7 +14,7 @@ const originalState = [
 ];
 
 const nextState = produce(originalState, (draft) => {
-  //draft : originalState 복사한 값을 가지고있다.
+  //draft : originalState 복사한 값을 가지고있다. 즉 복사한 객체를 건들어야하다.수정하기위해
   // id가 2인 항목의 checked 값을 true로 설정
   const todo = draft.find((t) => t.id === 2); //id로 항목 찾기
   todo.checked = true;
