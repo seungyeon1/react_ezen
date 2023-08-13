@@ -1,7 +1,7 @@
 import React from "react";
 import { ColorConsumer } from "../contexts/color";
 
-const colors = ["red", "orange", "yellow", "green", "blue", "navy", "purple"];
+const colors = ["pink", "orange", "yellow", "green", "blue", "navy", "purple"];
 
 const SelectColor = () => {
   return (

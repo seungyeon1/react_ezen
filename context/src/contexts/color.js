@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 //createContext를 ColorContext 담는다.
 const ColorContext = createContext({
-  state: { color: "black", subcolor: "red" },
+  state: { color: "black", subcolor: "pink" },
   //actions 동적으로 업데이트 한다.
   actions: {
     setColor: () => {},
@@ -13,7 +13,7 @@ const ColorContext = createContext({
 //children 메개변수 받아서
 const ColorProvider = ({ children }) => {
   const [color, setColor] = useState("black");
-  const [subcolor, setSubcolor] = useState("red");
+  const [subcolor, setSubcolor] = useState("pink");
   const value = {
     state: { color, subcolor },
     actions: { setColor, setSubcolor },
