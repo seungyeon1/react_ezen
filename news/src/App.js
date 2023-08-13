@@ -1,8 +1,13 @@
-import React from "react";
-import NewList from "./components/NewList";
+import React, { Route, Routes } from "react-router-dom";
+import NewsPage from "./pages/NewsPage";
 
 const App = () => {
-  return <NewList />;
+  return (
+    <Routes>
+      <Route path="/" element={<NewsPage />} />
+      <Route path="/:category" element={<NewsPage />} />
+    </Routes>
+  );
 };
 
 export default App;

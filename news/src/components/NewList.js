@@ -23,7 +23,7 @@ const sampleArticle = {
   urlToImage: "https://via.placeholder.com/120x120", // default이미지 제공하는 사이트
 };
 
-const NewList = () => {
+const NewList = ({ category }) => {
   const [articles, setArticle] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -34,8 +34,9 @@ const NewList = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
+        const query = category === "all" ? "" : `&category=${category}`;
         const reponse = await axios.get(
-          "https://newsapi.org/v2/top-headlines?country=kr&apiKey=f2631f791849422c9e22c328f8536f03"
+          `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=f2631f791849422c9e22c328f8536f03`
         );
         setArticle(reponse.data.articles);
       } catch (e) {
@@ -44,7 +45,7 @@ const NewList = () => {
       setLoading(false);
     };
     fetchData(); //호출
-  }, []);
+  }, [category]);
 
   //대기중일때
   if (loading) {
