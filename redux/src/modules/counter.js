@@ -9,8 +9,8 @@ const DECREASE = "counter/DECREASE";
 // export const decrease = () => ({ type: DECREASE });
 
 // redux-action 액션 생성 함수
-export const increase = () => createAction(INCREASE);
-export const decrease = () => createAction(DECREASE);
+export const increase = createAction(INCREASE);
+export const decrease = createAction(DECREASE);
 
 // 초기 상태 정의
 const initialState = {
