@@ -1,15 +1,15 @@
 import "./App.css";
 import CounterContainer from "./containers/CounterContainer";
-import TodosContainer from "./containers/TodosContainer";
+import SampleContainer from "./containers/SampleContainer";
 
 function App() {
   return (
-    <div>
+    <>
       {/* 리덕스에서 컨테이너컴포넌트가 중심 */}
-      <CounterContainer number={0} />
+      <CounterContainer />
       <hr />
-      <TodosContainer />
-    </div>
+      <SampleContainer />
+    </>
   );
 }
 
