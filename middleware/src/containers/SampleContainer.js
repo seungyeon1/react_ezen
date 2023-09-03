@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getPost, getUsers } from "../modules/sample";
+import loading from "../modules/loading";
 import Sample from "../components/Sample";
 
 const SampleContainer = ({
@@ -12,8 +13,15 @@ const SampleContainer = ({
   loadingUsers,
 }) => {
   useEffect(() => {
-    getPost(1);
-    getUsers();
+    const fn = async () => {
+      try {
+        await getPost(1);
+        await getUsers();
+      } catch (e) {
+        console.log(e); //에러조회
+      }
+    };
+    fn();
   }, [getPost, getUsers]);
   return (
     <Sample
@@ -28,8 +36,8 @@ export default connect(
   ({ sample }) => ({
     post: sample.post,
     users: sample.users,
-    loadingPost: sample.loading.GET_POST,
-    loadingUsers: sample.loading.GET_USERS,
+    loadingPost: loading["sample/GET_POST"],
+    loadingUsers: loading["sample/GET_USERS"],
   }),
   {
     getPost,
