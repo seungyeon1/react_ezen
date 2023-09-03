@@ -32,13 +32,17 @@ const SampleContainer = ({
     />
   );
 };
+
+//연결해주기
 export default connect(
+  //상태값 조회
   ({ sample }) => ({
     post: sample.post,
     users: sample.users,
     loadingPost: loading["sample/GET_POST"],
     loadingUsers: loading["sample/GET_USERS"],
   }),
+  //액션
   {
     getPost,
     getUsers,
