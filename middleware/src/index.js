@@ -3,20 +3,29 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { applyMiddleware, legacy_createStore } from "redux";
-import rootRedcuer from "./modules";
+import { legacy_createStore as createStore, applyMiddleware } from "redux";
+import rootReducer, { rootSaga } from "./modules";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 // import loggerMiddleware from "./lib/loggerMiddleware"; //직접 미들웨이 만듦
 import { createLogger } from "redux-logger"; //미들웨어 lib
 import ReduxThunk from "redux-thunk"; //{}제거 해야해야함..
+import createSagaMiddleware from "@redux-saga/core"; //saga 미들웨어 lib
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const logger = createLogger();
-const store = legacy_createStore(
-  rootRedcuer,
-  applyMiddleware(logger, ReduxThunk)
+const sagaMiddleware = createSagaMiddleware();
+
+// const store = legacy_createStore(
+//   rootRedcuer,
+//   applyMiddleware(logger, ReduxThunk
+// );
+const store = createStore(
+  rootReducer,
+  applyMiddleware(logger, ReduxThunk, sagaMiddleware)
 );
+sagaMiddleware.run(rootSaga);
+
 root.render(
   <Provider store={store}>
     <App />
